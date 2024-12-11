@@ -1,0 +1,9 @@
+.top_banner {
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url("/public/images/bg-principal.jpg");
+  background-size: cover;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+}
