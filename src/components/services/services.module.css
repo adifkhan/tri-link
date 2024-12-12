@@ -1,0 +1,90 @@
+.services {
+  overflow: hidden;
+}
+
+.title {
+  & h4 {
+    font-size: 3.75vw;
+    font-weight: 400;
+    color: #607d8c;
+    text-align: center;
+    line-height: 1;
+  }
+}
+.circle_contents {
+  min-height: 200vh;
+  position: relative;
+
+  .content {
+    position: absolute;
+    top: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20vw;
+    aspect-ratio: 1/1;
+    padding: 2em;
+    border-radius: 50%;
+    background: var(--primary_color);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in-out;
+    z-index: 10;
+
+    & p {
+      font-size: 1.56vw;
+      text-align: center;
+      line-height: 1.2em;
+      color: var(--light_color);
+    }
+  }
+  .content:nth-of-type(1) {
+    left: 17vw;
+  }
+  .content:nth-of-type(2) {
+    left: 39vw;
+  }
+  .content:nth-of-type(3) {
+    left: 61vw;
+  }
+  .content:nth-of-type(4) {
+    left: 83vw;
+  }
+}
+
+.service_details {
+  min-height: 100vh;
+  padding-top: 3vw;
+  background: var(--primary_color);
+  background-image: url("/public/images/bg-trilink_icon.jpg");
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 12;
+
+  .container {
+    width: 85vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 0 30px;
+
+    .detail_wrapper {
+      color: var(--light_color);
+      max-width: 16vw;
+      display: flex;
+      flex-direction: column;
+      gap: 3vw 0;
+
+      & h4 {
+        min-height: 75px;
+        font-size: 1.6vw;
+        font-weight: 400;
+        line-height: 1.2em;
+        text-align: center;
+      }
+      & p {
+        line-height: 1.85;
+        text-align: center;
+      }
+    }
+  }
+}

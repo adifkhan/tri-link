@@ -13,9 +13,20 @@
   .heading {
     display: flex;
     align-items: center;
-    gap: 20px;
+    column-gap: 20px;
     font-size: 4vw;
     font-weight: 900;
+    line-height: 1;
+
+    & span {
+      display: inline-block;
+      transition: transform 1.5s cubic-bezier(0.25, 1, 0.8, 1) 0s, margin 1.5s ease;
+      transform-origin: left center;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
   }
   .tag_line {
     font-size: 2vw;
@@ -24,7 +35,8 @@
   .scroller {
     position: absolute;
     bottom: 7vh;
-    right: 8.5vw;
+    right: 4vw;
+    width: 200px;
 
     display: flex;
     flex-direction: column;
@@ -60,5 +72,38 @@
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+/* responsive styling */
+@media (max-width: 1024px) {
+  .banner_wrapper {
+    .heading {
+      flex-wrap: wrap;
+      font-size: 8vw;
+    }
+    .tag_line {
+      font-size: 3vw;
+    }
+    .scroller p {
+      font-size: 2vw;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .banner_wrapper {
+    .heading {
+      font-size: 10vw;
+    }
+    .tag_line {
+      font-size: 4.5vw;
+    }
+    .scroller {
+      right: 50%;
+      transform: translateX(50%);
+      p {
+        font-size: 4vw;
+      }
+    }
   }
 }

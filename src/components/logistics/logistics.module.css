@@ -1,0 +1,55 @@
+.logistics {
+  display: flex;
+  flex-direction: column;
+  min-height: 300vh;
+  position: relative;
+  color: var(--light_color);
+  padding-top: 3vw;
+  background: var(--primary_color);
+  background-image: url("/public/images/bg-trilink_icon.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.heading {
+  position: sticky;
+  top: 100px;
+  left: 0;
+
+  & h2 {
+    font-size: 2.2vw;
+    font-weight: 300;
+    line-height: 1;
+    text-align: center;
+
+    & span {
+      color: var(--accent);
+      font-weight: 500;
+    }
+  }
+}
+
+.counter {
+  flex-grow: 1;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+
+    position: sticky;
+    top: 80vh;
+    left: 80vw;
+
+    & h4 {
+      font-size: 7.8vw;
+      font-weight: 900;
+      line-height: 1em;
+    }
+    & p {
+      font-size: 1.25vw;
+      font-weight: 3200;
+      line-height: 1em;
+    }
+  }
+}
