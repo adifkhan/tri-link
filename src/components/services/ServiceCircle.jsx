@@ -52,7 +52,7 @@ const ServiceCircle = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
+  // style={{ height: circleHeight }}
   return (
     <div className={styles.circle_contents} ref={containerRef}>
       <div className={styles.content}>

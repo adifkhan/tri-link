@@ -1,9 +1,17 @@
 .top_banner {
-  height: 95vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   background-image: url("/public/images/bg-principal.jpg");
   background-size: cover;
   background-position: bottom center;
   background-repeat: no-repeat;
+}
+
+/* ----------responsive styling-------- */
+
+@media (max-width: 768px) {
+  .top_banner {
+    background-size: auto;
+  }
 }

@@ -13,8 +13,12 @@
 
 .heading {
   position: sticky;
-  top: 100px;
+  top: 0;
   left: 0;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   & h2 {
     font-size: 2.2vw;
@@ -36,20 +40,68 @@
     display: flex;
     align-items: center;
     width: fit-content;
+    margin-bottom: 50px;
 
     position: sticky;
     top: 80vh;
-    left: 80vw;
+    left: 72vw;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.5s ease-out;
 
     & h4 {
-      font-size: 7.8vw;
+      font-size: 7.81vw;
       font-weight: 900;
       line-height: 1em;
     }
     & p {
       font-size: 1.25vw;
-      font-weight: 3200;
+      font-weight: 300;
       line-height: 1em;
+    }
+  }
+
+  .wrapper:nth-child(2) {
+    & h4,
+    & p {
+      color: #607d8c;
+    }
+  }
+  .wrapper:nth-child(3) {
+    & h4,
+    & p {
+      color: var(--accent);
+    }
+  }
+}
+
+/* ----------responsive styling-------- */
+@media (max-width: 1024px) {
+  .counter {
+    .wrapper {
+      & p {
+        font-size: 2vw;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .heading {
+    & h2 {
+      font-size: 24px;
+      line-height: 30px;
+    }
+  }
+  .counter {
+    .wrapper {
+      align-items: flex-start;
+      gap: 20px;
+      top: 85vh;
+      left: 55vw;
+
+      & p {
+        font-size: 4vw;
+      }
     }
   }
 }

@@ -8,8 +8,8 @@
 
 :root {
   --primary_color: #193444;
-  --accent: #50845e;
   --light_color: #ffffff;
+  --accent: #50845e;
 }
 html {
   font-size: 62.5%;

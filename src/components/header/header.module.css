@@ -126,6 +126,9 @@
   }
 }
 @media (max-width: 768px) {
+  .header {
+    height: 60px;
+  }
   .logo {
     width: 35vw;
     justify-content: center;
