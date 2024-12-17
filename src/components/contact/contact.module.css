@@ -1,0 +1,243 @@
+.socials {
+  background-color: var(--primary_color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 30vh;
+  padding: 10px 8vw;
+  background-image: url("/public/images/BG-Trilink_icon_2.webp");
+  background-repeat: no-repeat;
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    & img {
+      width: 18vw;
+    }
+    & p {
+      font-size: 1.7vw;
+      font-weight: 300;
+      color: var(--light_color);
+    }
+  }
+
+  .icons {
+    & span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border: 1px solid var(--light_color);
+      border-radius: 50%;
+      margin: 0 12px;
+      color: var(--light_color);
+      font-size: 24px;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background: var(--light_color);
+        color: var(--primary_color);
+      }
+    }
+  }
+}
+.contact {
+  min-height: 92vh;
+  padding: 0 7.5vw;
+  margin: 0 auto;
+  border-bottom: 2px solid var(--primary_color);
+
+  display: flex;
+
+  .desc {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+
+    & h2 {
+      font-size: 2.5vw;
+      font-weight: 400;
+      line-height: 1.08em;
+    }
+
+    .phone {
+      background: var(--accent);
+      width: 18vw;
+      min-height: 14vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+
+      & span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        color: var(--light_color);
+      }
+
+      & p {
+        font-size: 1vw;
+        font-weight: 400;
+        line-height: 1.2em;
+        text-align: center;
+        color: var(--light_color);
+      }
+    }
+  }
+
+  .contact_form {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .input_group {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      & label {
+        font-size: 1.08em;
+      }
+
+      & input,
+      & textarea {
+        width: 45%;
+        padding: 1px 2px;
+        font-size: 0.9vw;
+        font-weight: 300;
+        line-height: 1.85;
+        margin-bottom: 2svh;
+        border: none;
+        border-bottom: 2px solid var(--primary_color);
+        transition: all 0.5s;
+      }
+      & textarea {
+        width: 100%;
+        height: 60px;
+        /* resize: none; */
+      }
+    }
+
+    .submit_btn {
+      margin-top: 4vh;
+      & input {
+        min-width: 15vw;
+        min-height: 8vh;
+        background: var(--accent);
+        border: none;
+        border-radius: 4px;
+        font-size: 1.2vw;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: var(--light_color);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+/* responsive styling */
+
+@media (max-width: 1024px) {
+  .socials {
+    min-height: 13vh;
+
+    .icons {
+      & span {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        margin: 0 8px;
+      }
+    }
+  }
+  .contact {
+    .desc {
+      & h2 {
+        font-size: 3vw;
+        line-height: 1.3em;
+      }
+
+      .phone {
+        width: 30vw;
+        min-height: 10vh;
+
+        & p {
+          font-size: 2vw;
+        }
+      }
+    }
+    .contact_form {
+      .input_group {
+        & input,
+        & textarea {
+          font-size: 100%;
+          width: 60%;
+          border: 1px solid var(--primary_color);
+          border-radius: 3px;
+        }
+        & textarea {
+          height: 120px;
+        }
+      }
+      .submit_btn {
+        margin-top: 1.5vh;
+      }
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .socials {
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 20px;
+  }
+  .contact {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+
+    .desc {
+      width: 100%;
+
+      & h2 {
+        font-size: 5vw;
+        text-align: center;
+      }
+      .phone {
+        width: 100%;
+        padding: 10px;
+
+        & p {
+          font-size: 4vw;
+        }
+      }
+    }
+    .contact_form {
+      width: 100%;
+      padding: 20px;
+
+      .input_group {
+        & input,
+        & textarea {
+          width: 45%;
+        }
+      }
+      .submit_btn {
+        & input {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}

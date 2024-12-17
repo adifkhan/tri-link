@@ -1,27 +1,26 @@
 .transport {
-  height: 2500px;
+  height: calc((100vh * 1.1) + 800px + 500px);
   position: relative;
   padding-top: 20px;
 }
 .warehouse_circle {
-  position: sticky;
+  position: absolute;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-
-  width: 200px;
-  height: 200px;
+  width: 700px;
+  height: 700px;
   border-radius: 50%;
+  background-color: tan;
   overflow: hidden;
 
   background-image: url("/public/images/TriLink-2.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-
-  transition: width 0.5s cubic-bezier(0.25, 1.25, 0.5, 1),
-    height 0.15s cubic-bezier(0.25, 1.25, 0.5, 1), left 0.6s ease, top 0.6s ease,
-    transform 0.6s ease;
+  transition: width 0.2s ease, height 0.05s ease, left 1s ease, transform 1s ease;
+  /* transition: width 0.5s cubic-bezier(0.25, 1.25, 0.5, 1),
+    height 0.15s cubic-bezier(0.25, 1.25, 0.5, 1), left 1s ease, top 0.5s ease, transform 1s ease; */
 
   .overlay {
     position: absolute;
@@ -40,13 +39,14 @@
     width: 100%;
     z-index: 10;
     opacity: 0;
-    transition: 0.6s ease-in-out;
+    transition: 0.3s ease-in-out;
   }
 }
 .description {
   position: fixed;
   right: -50vw;
   top: 50%;
+  transform: translateY(-50%);
   opacity: 0;
   transition: right 1s ease, opacity 1s ease;
 
@@ -65,15 +65,35 @@
   & p {
     width: 35vw;
     text-align: right;
-    font-size: 16.8px;
+    font-size: 1.2em;
   }
 }
 
 /* -----------responsive styling---------- */
 @media (max-width: 1024px) {
-  /* .warehouse_circle {
-    
-    width: 900px;
-    height: 900px;
-  } */
+  .warehouse_circle {
+    width: 700px !important;
+    height: 700px !important;
+  }
+  .description {
+    & h4 {
+      font-size: 3vw;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .warehouse_circle {
+    width: 280px !important;
+    height: 280px !important;
+    margin-bottom: calc((100vh * 0.5) - 140px);
+  }
+  .description {
+    width: 50vw;
+    & h4 {
+      font-size: 5vw;
+    }
+    & p {
+      font-size: 3vw;
+    }
+  }
 }

@@ -20,10 +20,12 @@ const Transport = () => {
       const viewportHeight = window.innerHeight;
       const viewportWidth = window.innerWidth;
 
-      console.log(viewportWidth);
-
       if (scrollDelta > 0) {
-        if (containerRect.bottom < viewportHeight + 50) {
+        if (containerRect.bottom < viewportHeight) {
+          circleRef.current.style.position = "absolute";
+          circleRef.current.style.top = `${
+            transportRef.current.clientHeight - viewportHeight * 1.05
+          }px`;
           descriptionRef.current.style.position = "absolute";
           descriptionRef.current.style.top = `${
             transportRef.current.clientHeight - viewportHeight * 0.5
@@ -34,15 +36,17 @@ const Transport = () => {
           descriptionRef.current.style.opacity = 1;
         } else if (containerRect.top < -400) {
           img.style.opacity = 1;
-        } else if (containerRect.top < -300) {
-          circleRef.current.style.top = 0;
+        } else if (containerRect.top < -250 && viewportWidth > 768) {
+          circleRef.current.style.top = `-${viewportHeight * 0.05}px`;
         } else if (containerRect.top < 0) {
-          targetHeight.current = 900;
+          targetHeight.current = viewportHeight * 1.1;
+          circleRef.current.style.position = "fixed";
         }
       } else {
         if (containerRect.top > 0) {
           targetHeight.current = 200;
-        } else if (containerRect.top > -300) {
+          circleRef.current.style.position = "absolute";
+        } else if (containerRect.top > -250) {
           circleRef.current.style.top = "20px";
         } else if (containerRect.top > -400) {
           img.style.opacity = 0;
@@ -50,14 +54,28 @@ const Transport = () => {
           circleRef.current.style.left = "50%";
           descriptionRef.current.style.right = "-50vw";
           descriptionRef.current.style.opacity = 0;
-        } else if (containerRect.bottom > viewportHeight + 100) {
+        } else if (containerRect.bottom > viewportHeight) {
+          circleRef.current.style.position = "fixed";
+          circleRef.current.style.top = `${
+            viewportWidth > 768 ? `-${viewportHeight * 0.05}px` : "20px"
+          }`;
           descriptionRef.current.style.position = "fixed";
           descriptionRef.current.style.top = "50%";
+        } else if (containerRect.bottom < viewportHeight) {
+          img.style.opacity = 1;
+          targetHeight.current = viewportHeight * 1.1;
+          circleRef.current.style.position = "absolute";
+          circleRef.current.style.top = `${
+            transportRef.current.clientHeight - viewportHeight * 1.05
+          }px`;
+          circleRef.current.style.left = 0;
+          descriptionRef.current.style.position = "absolute";
+          descriptionRef.current.style.top = `${
+            transportRef.current.clientHeight - viewportHeight * 0.5
+          }px`;
+          descriptionRef.current.style.right = "7.5vw";
+          descriptionRef.current.style.opacity = 1;
         }
-      }
-
-      if (viewportWidth < 1025) {
-        targetHeight.current = 900;
       }
 
       lastScrollY.current = currentScrollY;

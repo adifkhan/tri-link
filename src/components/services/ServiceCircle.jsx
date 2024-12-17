@@ -16,7 +16,7 @@ const ServiceCircle = () => {
         contents.forEach((content) => {
           content.style.left = "50%";
           content.style.width = "180vw";
-          content.style.transition = "width 0.3s ease-in-out .3s";
+          content.style.transition = "width 0.3s ease-in .3s";
           const paragraph = content.querySelector("p");
           if (paragraph) {
             paragraph.style.opacity = "0";

@@ -11,17 +11,18 @@ const Logistics = () => {
     if (element.dataset.animated === "true") return;
 
     const target = +element.dataset.target;
-    let count = 12;
+    let count = 2;
     const step = Math.ceil(target / 40);
 
     const updateCount = () => {
-      count += step;
+      // count += step;
+      count += 5;
       if (count >= target) {
         element.innerText = target;
         element.dataset.animated = "true";
       } else {
         element.innerText = count;
-        setTimeout(updateCount, 30);
+        setTimeout(updateCount, 80);
         // requestAnimationFrame(updateCount);
       }
     };

@@ -1,0 +1,215 @@
+.footer_top {
+  padding: 4vw 7.5vw 0;
+  border-top: 1px solid var(--primary_color);
+  border-bottom: 1px solid var(--primary_color);
+}
+.contents {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  .logo_desc {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px 0;
+    padding-right: 20%;
+
+    & img {
+      width: min(13vw, 250%);
+    }
+    & p {
+      font-size: 0.85vw;
+      font-weight: 300;
+      text-align: center;
+      line-height: 1.25em;
+    }
+    & p:first-of-type {
+      margin-bottom: 1.25em;
+    }
+  }
+  .general,
+  .services,
+  .contact {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px 0;
+    padding: 10px;
+
+    & h5 {
+      font-size: 1.5vw;
+      font-weight: 500;
+    }
+    & ul {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      & li {
+        font-size: 1vw;
+
+        &:hover {
+          color: var(--accent);
+        }
+      }
+    }
+  }
+}
+
+.footer_social {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 5vw 0;
+
+  & p {
+    font-size: 1.8rem;
+    line-height: 1.85;
+    font-weight: 500;
+  }
+
+  .icons {
+    & span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border: 1px solid var(--primary_color);
+      border-radius: 50%;
+      margin: 0 12px;
+      color: var(--primary_color);
+      font-size: 24px;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background: var(--primary_color);
+        color: var(--light_color);
+      }
+    }
+  }
+}
+
+.footer_btm {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 0 auto;
+  padding: 2vw 7.5vw;
+
+  & p {
+    font-size: 1vw;
+    font-weight: 300;
+  }
+}
+
+/* responsive styling */
+@media (max-width: 1024px) {
+  .contents {
+    flex-wrap: wrap;
+
+    .logo_desc {
+      width: 100%;
+      padding: 0;
+      gap: 20px;
+
+      & img {
+        width: 14vw;
+      }
+
+      & p {
+        font-size: 2vw;
+      }
+    }
+    .general,
+    .services,
+    .contact {
+      width: 31%;
+
+      & h5 {
+        font-size: 2vw;
+      }
+      & ul {
+        & li {
+          font-size: 2vw;
+        }
+      }
+    }
+  }
+
+  .footer_social {
+    .icons {
+      & span {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        margin: 0 8px;
+      }
+    }
+  }
+  .footer_btm {
+    & p {
+      font-size: 2vw;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .contents {
+    .logo_desc {
+      & img {
+        width: min(100%, 100px);
+      }
+
+      & p {
+        font-size: 3vw;
+      }
+    }
+    .general,
+    .services,
+    .contact {
+      width: 100%;
+      align-items: center;
+      gap: 20px;
+
+      & h5 {
+        font-size: 4vw;
+      }
+      & ul {
+        & li {
+          font-size: 3vw;
+          margin: 0 auto;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .footer_social {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    .icons {
+      & span {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        margin: 0 8px;
+      }
+    }
+  }
+  .footer_btm {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    & p {
+      font-size: 3vw;
+    }
+  }
+}
