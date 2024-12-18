@@ -5,6 +5,7 @@
   justify-content: space-between;
   gap: 40px;
   padding: 3vw 0 2vw;
+  overflow: hidden;
 }
 .heading {
   & h2 {
