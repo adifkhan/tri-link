@@ -36,8 +36,16 @@ const Slider = () => {
   const [isTransitioning, setIsTransitioning] = useState(true);
 
   const totalSlides = items.length;
-
   const slides = [items[totalSlides - 1], ...items, items[0]];
+
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const updateWidth = () => setViewportWidth(window.innerWidth);
+    window.addEventListener("resize", updateWidth);
+
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
 
   const goToNext = () => {
     setIsTransitioning(true);
@@ -74,7 +82,9 @@ const Slider = () => {
         ref={sliderRef}
         className={styles.slider_wrapper}
         style={{
-          transform: `translateX(-${currentIndex * 50}%)`,
+          transform: `translateX(${
+            viewportWidth > 1024 ? `-${currentIndex * 50}%` : `-${currentIndex * 100}%`
+          })`,
           transition: isTransitioning ? "transform 0.5s ease-in-out" : "none",
         }}
       >
@@ -82,7 +92,8 @@ const Slider = () => {
           <div className={styles.slider}>
             <div className={styles.contents} style={{ backgroundImage: `url(${slide.img})` }}>
               <p>{slide.date}</p>
-              <h4>{slide.text}</h4> <a href="#">Read the article</a>
+              <h4>{slide.text}</h4>
+              <a href="#home">Read the article</a>
             </div>
           </div>
         ))}
