@@ -31,7 +31,9 @@ const Clients = () => {
             <a href="#technology">Technology</a>
           </div>
         </div>
-        <div className={styles.client_logos}>{/* <CloudGallery entries={entries} /> */}</div>
+        <div className={styles.client_logos}>
+          <CloudGallery entries={entries} />
+        </div>
       </div>
       <CircleAnimBottom />
     </div>
