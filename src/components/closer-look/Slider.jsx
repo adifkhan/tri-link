@@ -89,7 +89,7 @@ const Slider = () => {
         }}
       >
         {slides.map((slide, index) => (
-          <div className={styles.slider}>
+          <div key={index} className={styles.slider}>
             <div className={styles.contents} style={{ backgroundImage: `url(${slide.img})` }}>
               <p>{slide.date}</p>
               <h4>{slide.text}</h4>
@@ -102,7 +102,7 @@ const Slider = () => {
         <span onClick={goToPrev}>
           <svg
             aria-hidden="true"
-            class="e-font-icon-svg e-far-arrow-alt-circle-left"
+            className="e-font-icon-svg e-far-arrow-alt-circle-left"
             viewBox="0 0 512 512"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -112,7 +112,7 @@ const Slider = () => {
         <span onClick={goToNext}>
           <svg
             aria-hidden="true"
-            class="e-font-icon-svg e-far-arrow-alt-circle-right"
+            className="e-font-icon-svg e-far-arrow-alt-circle-right"
             viewBox="0 0 512 512"
             xmlns="http://www.w3.org/2000/svg"
           >
