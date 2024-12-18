@@ -20,6 +20,7 @@ const Banner = () => {
   const handleMouseLeave = () => {
     const container = containerRef.current;
     const spans = container.querySelectorAll("span");
+
     // Reset all
     spans.forEach((span) => {
       span.style.marginRight = "";

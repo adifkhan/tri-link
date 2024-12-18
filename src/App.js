@@ -1,5 +1,6 @@
 import "./App.css";
 import Banner from "./components/banner/Banner";
+import Clients from "./components/clients/Clients";
 import CloserLook from "./components/closer-look/CloserLook";
 import Contact from "./components/contact/Contact";
 import Footer from "./components/footer/Footer";
@@ -20,6 +21,7 @@ function App() {
       <Logistics />
       <Transport />
       <RetailProducts />
+      <Clients />
       <Contact />
       <CloserLook />
       <Footer />
