@@ -1,5 +1,5 @@
 .top_circle_container {
-  min-height: 200vh;
+  min-height: 300vh;
   position: relative;
   overflow: hidden;
 
@@ -34,8 +34,9 @@
     }
   }
 }
+
 .btm_circle_container {
-  min-height: 150vh;
+  min-height: 300vh;
   position: relative;
   overflow: hidden;
 
@@ -50,7 +51,7 @@
 
     position: absolute;
     left: 50%;
-    transform: translate(-50%, -70%);
+    transform: translate(-50%, -50%);
     transition: width 0.7s ease-in-out, height 0.7s ease-in-out, top 0.5s ease-in-out;
 
     & p {
@@ -74,6 +75,7 @@
 
   background: var(--neutral);
 }
+
 .branding {
   min-height: 80vh;
   width: 40%;

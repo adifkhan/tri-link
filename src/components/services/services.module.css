@@ -21,7 +21,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20vw;
+    min-width: 20vw;
+    max-width: 180vw;
     aspect-ratio: 1/1;
     padding: 2em;
     border-radius: 50%;

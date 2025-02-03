@@ -19,7 +19,7 @@ const Clients = () => {
                 3PL and FTZ Solutions for the
               </span>
               <br />
-              World’s Biggest Brands
+              World&apos;s Biggest Brands
             </h2>
             <p>
               Discover how our FTZ services streamline your import/export processes and reduce
@@ -31,9 +31,7 @@ const Clients = () => {
             <a href="#technology">Technology</a>
           </div>
         </div>
-        <div className={styles.client_logos}>
-          <CloudGallery entries={entries} />
-        </div>
+        <div className={styles.client_logos}>{/* <CloudGallery entries={entries} /> */}</div>
       </div>
       <CircleAnimBottom />
     </div>

@@ -8,24 +8,40 @@ const CircleAnimBottom = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const containerRect = circleBContainerRef?.current?.getBoundingClientRect();
-      const containerHeight = circleBContainerRef.current.clientHeight;
       const viewportHeight = window.innerHeight;
       const viewportWidth = window.innerWidth;
+      const containerRect = circleBContainerRef?.current?.getBoundingClientRect();
+      const containerHeight = circleBContainerRef.current.clientHeight;
       const text = circleBContainerRef.current.querySelector("p");
 
-      if (containerRect.top < -viewportHeight * 0.5) {
-        const axisLength = viewportHeight * 0.6 - containerRect.top;
-        setAxisY(Math.min(containerHeight - 325, axisLength));
+      if (containerRect.bottom < viewportHeight + 200) {
+        const axisPosY = viewportHeight * 0.5 - containerRect.top;
+        setAxisY(Math.min(containerHeight - 300, axisPosY));
         setWidth(
-          Math.max(viewportWidth > 1024 ? 650 : viewportWidth * 0.7, containerRect.bottom - 325)
+          Math.max(
+            viewportWidth > 1024 ? 520 : viewportWidth * 0.7,
+            viewportWidth + containerRect.top
+          )
         );
         text.style.opacity = 1;
-      } else if (containerRect.top < viewportHeight * 0.6) {
-        const axisLength = viewportHeight * 0.6 - containerRect.top;
-        setAxisY(Math.min(containerHeight - 325, axisLength));
+      } else if (containerRect.top < viewportHeight * 1.5) {
+        const axisPosY = viewportHeight * 0.3 - containerRect.top;
+        setAxisY(Math.min(containerHeight - 300, axisPosY));
         setWidth(
-          Math.max(viewportWidth > 1024 ? 650 : viewportWidth * 0.7, containerRect.bottom - 325)
+          Math.max(
+            viewportWidth > 1024 ? 520 : viewportWidth * 0.7,
+            viewportWidth + containerRect.top
+          )
+        );
+        text.style.opacity = 0;
+      } else if (containerRect.top < viewportHeight * 0.5) {
+        const axisPosY = viewportHeight * 0.1 - containerRect.top;
+        setAxisY(Math.min(containerHeight - 300, axisPosY));
+        setWidth(
+          Math.max(
+            viewportWidth > 1024 ? 520 : viewportWidth * 0.7,
+            viewportWidth + containerRect.top
+          )
         );
         text.style.opacity = 0;
       } else {

@@ -12,22 +12,18 @@
 
   .heading {
     display: flex;
-    align-items: center;
     column-gap: 20px;
     font-size: 4vw;
     font-weight: 900;
     line-height: 1;
 
     & span {
-      display: inline-block;
-      transition: transform 1.5s cubic-bezier(0.25, 1, 0.8, 1) 0s, margin 1.5s ease;
+      position: relative;
+      transition: transform 1.5s cubic-bezier(0.25, 1, 0.8, 1) 0s;
       transform-origin: left center;
-
-      &:hover {
-        transform: scale(1.2);
-      }
     }
   }
+
   .tag_line {
     font-size: 2vw;
     font-weight: 300;

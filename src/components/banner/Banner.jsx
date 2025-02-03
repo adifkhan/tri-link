@@ -3,41 +3,48 @@ import styles from "./banner.module.css";
 import { TfiArrowDown } from "react-icons/tfi";
 
 const Banner = () => {
-  const containerRef = useRef(null);
+  const spansRef = useRef([]);
 
-  // animate heading on mouse over
-  const handleMouseEnter = (index) => {
-    const container = containerRef.current;
-    const spans = container.querySelectorAll("span");
-    spans.forEach((span) => (span.style.marginRight = ""));
-    const hoveredSpan = spans[index];
-    hoveredSpan.classList.add("scaled");
-    const originalWidth = hoveredSpan.offsetWidth / 1.2;
-    const increment = hoveredSpan.offsetWidth - originalWidth;
-    hoveredSpan.style.marginRight = `${increment}px`;
-  };
+  // animate heading on mouse move over
+  const handleMouseMove = (event) => {
+    if (window.innerWidth < 1025) return;
 
-  const handleMouseLeave = () => {
-    const container = containerRef.current;
-    const spans = container.querySelectorAll("span");
+    const mouseX = event.clientX;
+    const scaleSize = 1.25;
 
-    // Reset all
-    spans.forEach((span) => {
-      span.style.marginRight = "";
-      span.classList.remove("scaled");
+    spansRef?.current?.forEach((span, index) => {
+      const spanRect = span.getBoundingClientRect();
+
+      if (index === 0 && mouseX <= spanRect.right) {
+        span.style.transform = `scale(${scaleSize})`;
+        const originalWidth = span.offsetWidth / scaleSize;
+        const increment = span.offsetWidth - originalWidth;
+        const spanToTranslateX = spansRef.current.filter((sp, i) => i > 0);
+        spanToTranslateX.forEach((el) => (el.style.transform = `translateX(${increment}px)`));
+      } else if (mouseX >= spanRect.left && mouseX <= spanRect.right) {
+        span.style.transform = `scale(${scaleSize})`;
+        const originalWidth = span.offsetWidth / scaleSize;
+        const increment = span.offsetWidth - originalWidth;
+
+        const spanToTranslateX = spansRef.current.filter((sp, i) => i > index);
+        spanToTranslateX.forEach((el) => (el.style.transform = `translateX(${increment}px)`));
+        const spanToReset = spansRef.current.filter((sp, i) => i < index);
+        spanToReset.forEach((el) => (el.style.transform = `translateX(0px)`));
+      }
     });
   };
+
+  const handleOnMouseLeave = () => {
+    spansRef?.current?.forEach((span) => (span.style.transform = "scale(1)"));
+  };
+
   return (
-    <div className={styles.banner}>
+    <div className={styles.banner} onMouseMove={handleMouseMove} onMouseLeave={handleOnMouseLeave}>
       <div className={styles.banner_wrapper}>
         <div>
-          <div className={styles.heading} ref={containerRef}>
+          <div className={styles.heading}>
             {["EMPOWER", "YOUR", "GLOBAL", "TRADE"].map((text, index) => (
-              <span
-                key={index}
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={handleMouseLeave}
-              >
+              <span key={index} ref={(el) => (spansRef.current[index] = el)}>
                 {text}
               </span>
             ))}
